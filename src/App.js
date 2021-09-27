@@ -1,10 +1,12 @@
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Home from "./pages/Home";
 import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Tesla Clone</h1>
-    </div>
+    <Router>
+      <Route path="/" exact component={Home} />
+    </Router>
   );
 }
 
