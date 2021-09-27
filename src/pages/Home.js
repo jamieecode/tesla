@@ -1,7 +1,9 @@
 import React from "react";
+// import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import Section from "../components/Section";
 import styled from "styled-components";
+import data from "../data";
 
 const Container = styled.section`
   scroll-snap-type: y mandatory;
@@ -13,13 +15,16 @@ const Container = styled.section`
 const Home = () => {
   return (
     <Container>
+      {/* <Header /> */}
       <Navbar />
-      <Section backgroundImg="model-s.jpg" />
-      <Section backgroundImg="model-y.jpg" />
-      <Section backgroundImg="model-x.jpg" />
-      <Section backgroundImg="model-3.jpg" />
-      <Section backgroundImg="solar-panels.jpg" />
-      <Section backgroundImg="solar-roof.jpg" />
+      {data.map((car) => (
+        <Section
+          key={car.id}
+          img={car.img}
+          title={car.title}
+          description={car.description}
+        />
+      ))}
     </Container>
   );
 };
