@@ -22,12 +22,12 @@ const StyledNav = styled.nav`
     list-style: none;
     padding: 0.5em 1rem;
     cursor: pointer;
+    border-radius: 0.8em;
   }
 
   li:hover {
     background-color: #9ab0c6;
-    border-radius: 0.8em;
-    transition: 0.2s linear;
+    transition: 0.5s linear;
   }
 `;
 

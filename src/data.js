@@ -4,6 +4,7 @@ const data = [
     title: "Model S",
     description: "Order Online for Touchless Delivery",
     img: "model-s.jpg",
+    arrow: true,
   },
   {
     id: 2,
@@ -26,7 +27,7 @@ const data = [
   {
     id: 5,
     title: "Solar Panels",
-    description: "Lowest Cosst Solar Panels in America",
+    description: "Lowest Cost Solar Panels in America",
     img: "solar-panels.jpg",
   },
   {

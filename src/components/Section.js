@@ -1,5 +1,7 @@
 import React from "react";
+import Fade from "react-reveal/Fade";
 import styled from "styled-components";
+import { FiChevronDown } from "react-icons/fi";
 
 const StyledSection = styled.section`
   display: flex;
@@ -18,11 +20,14 @@ const StyledSection = styled.section`
 
 const Text = styled.div`
   text-align: center;
-  margin-top: 4em;
+  margin: 4em 0 3em;
   color: ##181b21;
   h2 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 500;
+  }
+  p {
+    font-size: 0.9rem;
   }
 `;
 
@@ -40,7 +45,7 @@ const Buttons = styled.div`
     font-size: 0.8rem;
     font-weight: 600;
     cursor: pointer;
-    margin: 0 1em 5em;
+    margin: 0 1em 3em;
   }
 
   button: last-of-type {
@@ -50,17 +55,29 @@ const Buttons = styled.div`
   }
 `;
 
-const Section = ({ img, title, description }) => {
+const StyledIcon = styled(FiChevronDown)`
+  font-weight: bold;
+  font-size: 3rem;
+  animation: animateDown infinite 1.8s;
+`;
+
+const Section = ({ img, title, description, arrow }) => {
   return (
     <StyledSection backgroundImg={img}>
       <Text>
-        <h2>{title}</h2>
-        <p>{description}</p>
+        <Fade bottom>
+          <h2>{title}</h2>
+
+          <p>{description}</p>
+        </Fade>
       </Text>
-      <Buttons>
-        <button>custom order</button>
-        <button>existing inventory</button>
-      </Buttons>
+      <Text>
+        <Buttons>
+          <button>custom order</button>
+          <button>existing inventory</button>
+        </Buttons>
+        {arrow && <StyledIcon />}
+      </Text>
     </StyledSection>
   );
 };

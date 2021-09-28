@@ -1,5 +1,4 @@
 import React from "react";
-// import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import Section from "../components/Section";
 import styled from "styled-components";
@@ -15,7 +14,6 @@ const Container = styled.section`
 const Home = () => {
   return (
     <Container>
-      {/* <Header /> */}
       <Navbar />
       {data.map((car) => (
         <Section
@@ -23,6 +21,7 @@ const Home = () => {
           img={car.img}
           title={car.title}
           description={car.description}
+          arrow={car.arrow}
         />
       ))}
     </Container>
