@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import Sidebar from "./Sidebar";
 
 const StyledNav = styled.nav`
+  z-index: 1;
   padding: 0.5em;
   display: flex;
   width: 100vw;
@@ -23,10 +25,13 @@ const StyledNav = styled.nav`
     padding: 0.5em 1rem;
     cursor: pointer;
     border-radius: 0.8em;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #393c41;
   }
 
   li:hover {
-    background-color: #9ab0c6;
+    background-color: #e9ecef;
     transition: 0.5s linear;
   }
 `;
@@ -34,11 +39,11 @@ const StyledNav = styled.nav`
 const StyledLink = styled(Link)`
   text-decoration: none;
   color: #393c41;
-  font-weight: 500;
-  font-size: 0.9rem;
 `;
 
 const Navbar = () => {
+  const [sidebar, setSidebar] = useState(false);
+
   return (
     <StyledNav>
       <img src="/images/logo.png" alt="logo" />
@@ -69,10 +74,9 @@ const Navbar = () => {
         <li>
           <StyledLink to="/account">Account</StyledLink>
         </li>
-        <li>
-          <StyledLink to="/menu">Menu</StyledLink>
-        </li>
+        <li onClick={() => setSidebar(!sidebar)}>Menu</li>
       </ul>
+      <Sidebar sidebar={sidebar} setSidebar={setSidebar} />
     </StyledNav>
   );
 };

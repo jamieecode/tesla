@@ -1,7 +1,7 @@
 import React from "react";
-import Fade from "react-reveal/Fade";
 import styled from "styled-components";
 import { FiChevronDown } from "react-icons/fi";
+import { useScrollFade } from "../hooks/useScrollFade";
 
 const StyledSection = styled.section`
   display: flex;
@@ -62,14 +62,12 @@ const StyledIcon = styled(FiChevronDown)`
 `;
 
 const Section = ({ img, title, description, arrow }) => {
+  const animatedItem = useScrollFade();
   return (
     <StyledSection backgroundImg={img}>
-      <Text>
-        <Fade bottom>
-          <h2>{title}</h2>
-
-          <p>{description}</p>
-        </Fade>
+      <Text {...animatedItem}>
+        <h2>{title}</h2>
+        <p>{description}</p>
       </Text>
       <Text>
         <Buttons>

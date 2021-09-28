@@ -6,6 +6,7 @@ import data from "../data";
 
 const Container = styled.section`
   scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
   overflow-y: scroll;
   overflow-x: hidden;
   height: 100vh;
