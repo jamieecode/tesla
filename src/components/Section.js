@@ -15,12 +15,12 @@ const StyledSection = styled.section`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: ${(props) => `url("/images/${props.backgroundImg}")`};
+  background-image: ${(props) => `url("/images/main/${props.backgroundImg}")`};
 `;
 
 const Text = styled.div`
   text-align: center;
-  margin: 4em 0 3em;
+  margin: 4.5em 0 3em;
   color: ##181b21;
   h2 {
     font-size: 2.5rem;
@@ -39,12 +39,10 @@ const Buttons = styled.div`
     color: white;
     width: 16rem;
     padding: 1em;
-    border: none;
     border-radius: 2em;
     text-transform: uppercase;
     font-size: 0.8rem;
     font-weight: 600;
-    cursor: pointer;
     margin: 0 1em 3em;
   }
 

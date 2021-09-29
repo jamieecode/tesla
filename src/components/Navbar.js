@@ -63,14 +63,15 @@ const Navbar = () => {
           <StyledLink to="/models">Model S</StyledLink>
         </li>
         <li>
-          <StyledLink to="/modely">Model Y</StyledLink>
-        </li>
-        <li>
           <StyledLink to="/model3">Model 3</StyledLink>
         </li>
         <li>
           <StyledLink to="/modelx">Model X</StyledLink>
         </li>
+        <li>
+          <StyledLink to="/modely">Model Y</StyledLink>
+        </li>
+
         <li>
           <StyledLink to="/solarroofs">Solar Roof</StyledLink>
         </li>

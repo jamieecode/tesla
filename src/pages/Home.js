@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../components/Navbar";
+
 import Section from "../components/Section";
 import styled from "styled-components";
 import data from "../data";
@@ -15,7 +15,6 @@ const Container = styled.section`
 const Home = () => {
   return (
     <Container>
-      <Navbar />
       {data.map((car) => (
         <Section
           key={car.id}
