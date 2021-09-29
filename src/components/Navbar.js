@@ -41,9 +41,20 @@ const StyledLink = styled(Link)`
   color: #393c41;
 `;
 
+const StyledOverlay = styled.div`
+  display: ${(props) => (props.sidebar ? "block" : "none")};
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(0.2rem);
+  background-color: rgba(0, 0, 0, 0.2);
+`;
+
 const Navbar = () => {
   const [sidebar, setSidebar] = useState(false);
-
   return (
     <StyledNav>
       <img src="/images/logo.png" alt="logo" />
@@ -74,8 +85,15 @@ const Navbar = () => {
         <li>
           <StyledLink to="/account">Account</StyledLink>
         </li>
-        <li onClick={() => setSidebar(!sidebar)}>Menu</li>
+        <li
+          onClick={() => {
+            setSidebar(!sidebar);
+          }}
+        >
+          Menu
+        </li>
       </ul>
+      <StyledOverlay onClick={() => setSidebar(!sidebar)} sidebar={sidebar} />
       <Sidebar sidebar={sidebar} setSidebar={setSidebar} />
     </StyledNav>
   );

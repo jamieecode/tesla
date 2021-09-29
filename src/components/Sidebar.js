@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { RiCloseLine } from "react-icons/ri";
 
 const StyledSidebar = styled.div`
+  z-index: 2;
   width: 18rem;
   background-color: white;
   position: fixed;
@@ -10,7 +11,7 @@ const StyledSidebar = styled.div`
   right: 0;
   bottom: 0;
   transform: ${(props) => (props.show ? "translateX(0)" : "translateX(100%)")};
-  transition: transform 0.7s;
+  transition: transform 0.6s;
   div {
     display: flex;
     justify-content: flex-end;
