@@ -32,7 +32,7 @@ export const useScrollFade = (direction = "up", duration = 1, delay = 0) => {
     let observer;
     const { current } = dom;
     if (current) {
-      observer = new IntersectionObserver(handleScroll, { threshold: 0.8 });
+      observer = new IntersectionObserver(handleScroll, { threshold: 0.6 });
       observer.observe(current);
 
       return () => observer && observer.disconnect();

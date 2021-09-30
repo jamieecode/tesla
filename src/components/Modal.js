@@ -35,17 +35,21 @@ const StyledModal = styled.div`
 
 const StyledIcon = styled(RiCloseLine)`
   font-size: 1.5rem;
+  cursor: pointer;
 `;
 
-const Modal = () => {
+const Modal = ({ setShowModal }) => {
   return (
-    <StyledModal>
-      <div>
-        <StyledIcon />
-      </div>
-      <p>Question about ordering a Tesla product?</p>
-      <button>start chat</button>
-    </StyledModal>
+    <>
+      <StyledModal>
+        <div>
+          <StyledIcon onClick={() => setShowModal(false)} />
+        </div>
+
+        <p>Question about ordering a Tesla product?</p>
+        <button>start chat</button>
+      </StyledModal>
+    </>
   );
 };
 
