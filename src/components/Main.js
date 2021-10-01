@@ -71,7 +71,8 @@ const Main = ({ title, sub, folder }) => {
   useEffect(() => {
     setTimeout(() => {
       setShowModal(true);
-    }, 5000);
+    }, 4000);
+    return () => setShowModal(false);
   }, []);
   return (
     <Container folder={folder}>

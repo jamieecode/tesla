@@ -1,17 +1,18 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import Sidebar from "./Sidebar";
 
 const StyledNav = styled.nav`
+  width: 100vw;
   z-index: 1;
   padding: 0.5em;
   display: flex;
-  width: 100vw;
+  justify-content: space-around;
+  align-items: center;
   position: fixed;
   top: 0;
   left: 0;
-  justify-content: space-around;
   img {
     width: 10rem;
   }
@@ -55,9 +56,15 @@ const StyledOverlay = styled.div`
 
 const Navbar = () => {
   const [sidebar, setSidebar] = useState(false);
+  const withoutNavbarRoutes = ["/account"];
+  const { pathname } = useLocation();
+  if (withoutNavbarRoutes.some((item) => pathname.includes(item))) return null;
+
   return (
     <StyledNav>
-      <img src="/images/logo.png" alt="logo" />
+      <Link to="/">
+        <img src="/images/logo.png" alt="logo" />
+      </Link>
       <ul>
         <li>
           <StyledLink to="/models">Model S</StyledLink>

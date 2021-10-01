@@ -5,7 +5,6 @@ const Model3 = () => {
   return (
     <>
       <Main title="Model 3" folder="model-3" />
-      <Main title="Model 3" folder="model-3" />
     </>
   );
 };

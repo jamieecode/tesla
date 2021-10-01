@@ -5,6 +5,7 @@ import ModelS from "./pages/ModelS";
 import Model3 from "./pages/Model3";
 import ModelX from "./pages/ModelX";
 import ModelY from "./pages/ModelY";
+import Account from "./pages/Account";
 import Navbar from "./components/Navbar";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Route path="/model3" component={Model3} />
       <Route path="/modelx" component={ModelX} />
       <Route path="/modely" component={ModelY} />
+      <Route path="/account" component={Account} />
     </Router>
   );
 }

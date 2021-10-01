@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { RiCloseLine } from "react-icons/ri";
+import { useScrollFade } from "../hooks/useScrollFade";
 
 const StyledModal = styled.div`
   position: fixed;
@@ -39,17 +40,15 @@ const StyledIcon = styled(RiCloseLine)`
 `;
 
 const Modal = ({ setShowModal }) => {
+  const animatedItem = useScrollFade();
   return (
-    <>
-      <StyledModal>
-        <div>
-          <StyledIcon onClick={() => setShowModal(false)} />
-        </div>
-
-        <p>Question about ordering a Tesla product?</p>
-        <button>start chat</button>
-      </StyledModal>
-    </>
+    <StyledModal {...animatedItem}>
+      <div>
+        <StyledIcon onClick={() => setShowModal(false)} />
+      </div>
+      <p>Question about ordering a Tesla product?</p>
+      <button>start chat</button>
+    </StyledModal>
   );
 };
 
