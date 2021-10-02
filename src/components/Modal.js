@@ -28,8 +28,8 @@ const StyledModal = styled.div`
     font-weight: bold;
     margin: 2em 0;
   }
-  button: hover {
-    background-color: #033270;
+  button:hover {
+    filter: brightness(0.85);
     transition: 0.5s linear;
   }
 `;

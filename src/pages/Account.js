@@ -11,7 +11,8 @@ const Container = styled.section`
   h2 {
     font-size: 2.3rem;
     font-weight: 500;
-    margin: 0.7em 0;
+    padding: 0.6em 0.6em 0.4em;
+    width: 30%;
   }
 `;
 
@@ -23,7 +24,6 @@ const StyledNav = styled.nav`
   display: flex;
   justify-content: space-between;
   width: 100vw;
-
   img {
     width: 10rem;
   }
@@ -53,10 +53,16 @@ const StyledInfoIcon = styled(IoIosInformationCircle)`
   cursor: pointer;
 `;
 
+const StyledGlobeIcon = styled(IoIosGlobe)`
+  margin-right: 0.3em;
+  font-size: 1.5rem;
+`;
+
 const FormContainer = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 auto;
   width: 30%;
   form {
     display: flex;
@@ -75,16 +81,21 @@ const FormContainer = styled.section`
     padding: 1em;
     background-color: #f4f4f4;
     border-radius: 2em;
-    border: none;
+    border: 1px solid #f4f4f4;
     width: 20rem;
+    outline: none;
   }
 
   input:hover {
     background-color: #eeeeee;
   }
 
+  input:focus {
+    border: 1px solid #ccc;
+  }
+
   p {
-    margin: 2.5em 0;
+    margin: 2.2em 0;
     display: flex;
   }
 
@@ -107,6 +118,10 @@ const StyledButton = styled.button`
   font-weight: 500;
   text-transform: uppercase;
   border-radius: 2em;
+  &:hover {
+    filter:brightness(0.95);
+    transition: 0.5s;
+  }
   &:first-of-type {
     background-color: #4361ee;
     color: white;
@@ -123,6 +138,7 @@ const StyledButton = styled.button`
 
 const StyledLink = styled(Link)`
   color: #393c41;
+  margin: 0.5em;
   font-size: 0.8rem;
 `;
 
@@ -134,26 +150,25 @@ const Account = () => {
           <img src="/images/logo.png" alt="logo" />
         </Link>
         <button>
-          <IoIosGlobe />
+          <StyledGlobeIcon />
           en-US
         </button>
       </StyledNav>
-
       <h2>Sign In</h2>
       <FormContainer>
         <form>
           <label>
             Email Address <StyledInfoIcon />
           </label>
-          <input type="text" />
+          <input type="text" autoFocus />
           <label> Password</label>
           <input type="text" />
         </form>
         <StyledButton>sign in</StyledButton>
         <StyledButton>cancel</StyledButton>
         <div>
-          <StyledLink>Forgot email?</StyledLink> |{" "}
-          <StyledLink>Forgot Password?</StyledLink>
+          <StyledLink to="/">Forgot email?</StyledLink> |{" "}
+          <StyledLink to="/">Forgot Password?</StyledLink>
           <p>OR</p>
         </div>
         <StyledButton>create account</StyledButton>
