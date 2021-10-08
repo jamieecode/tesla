@@ -1,13 +1,13 @@
 import { useRef, useCallback, useEffect } from "react";
 
-export const useScrollFade = (direction = "up", duration = 1, delay = 0) => {
+export const useScrollFade = (direction = "down", duration = 1, delay = 0) => {
   const dom = useRef();
   const handleDirection = (direction) => {
     switch (direction) {
       case "up":
-        return "translateY(50%)";
+        return "0";
       case "down":
-        return "translateY(-50%)";
+        return "0.5";
       default:
         break;
     }
@@ -17,12 +17,7 @@ export const useScrollFade = (direction = "up", duration = 1, delay = 0) => {
     ([entry]) => {
       const { current } = dom;
       if (entry.isIntersecting) {
-        current.style.transitionProperty = "all";
-        current.style.transitionDuration = `${duration}s`;
-        current.style.transitionTimingFunction = "cubic-bezier(0, 0, 0.2, 1)";
-        current.style.transitionDelay = `${delay}`;
-        current.style.opacity = 1;
-        current.style.transform = "translate(0, 0)";
+        current.style.opacity = 0.8;
       }
     },
     [delay, duration]
@@ -32,7 +27,7 @@ export const useScrollFade = (direction = "up", duration = 1, delay = 0) => {
     let observer;
     const { current } = dom;
     if (current) {
-      observer = new IntersectionObserver(handleScroll, { threshold: 0.6 });
+      observer = new IntersectionObserver(handleScroll, { threshold: 0.9 });
       observer.observe(current);
 
       return () => observer && observer.disconnect();
@@ -42,8 +37,7 @@ export const useScrollFade = (direction = "up", duration = 1, delay = 0) => {
   return {
     ref: dom,
     style: {
-      opacity: 0,
-      transform: handleDirection(direction),
+      opacity: handleDirection(direction),
     },
   };
 };

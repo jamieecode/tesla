@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { IoIosGlobe, IoIosInformationCircle } from "react-icons/io";
@@ -53,6 +53,18 @@ const StyledInfoIcon = styled(IoIosInformationCircle)`
   cursor: pointer;
 `;
 
+const StyledInfoDiv = styled.div`
+  box-shadow: 1px 2px 4px 2px #ccc;
+  width: 20rem;
+  background-color: white;
+  padding: 0 1em;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  border-radius: 0.5em;
+`;
+
 const StyledGlobeIcon = styled(IoIosGlobe)`
   margin-right: 0.3em;
   font-size: 1.5rem;
@@ -64,6 +76,7 @@ const FormContainer = styled.section`
   align-items: center;
   margin: 0 auto;
   width: 30%;
+  position: relative;
   form {
     display: flex;
     flex-direction: column;
@@ -143,6 +156,7 @@ const StyledLink = styled(Link)`
 `;
 
 const Account = () => {
+  const [info, setInfo] = useState(false);
   return (
     <Container>
       <StyledNav>
@@ -158,10 +172,15 @@ const Account = () => {
       <FormContainer>
         <form>
           <label>
-            Email Address <StyledInfoIcon />
+            Email Address
+            <StyledInfoIcon
+              onMouseEnter={() => setInfo(true)}
+              onMouseLeave={() => setInfo(false)}
+            />
           </label>
+
           <input type="text" autoFocus />
-          <label> Password</label>
+          <label>Password</label>
           <input type="text" />
         </form>
         <StyledButton>sign in</StyledButton>
@@ -172,6 +191,16 @@ const Account = () => {
           <p>OR</p>
         </div>
         <StyledButton>create account</StyledButton>
+        {info && (
+          <StyledInfoDiv>
+            <p>
+              If your account is linked to an email address you no longer have
+              access to, please sign into your account and update your email
+              address under account settings
+            </p>
+            <p>If you have trouble signing in, please visit our support page</p>
+          </StyledInfoDiv>
+        )}
       </FormContainer>
     </Container>
   );

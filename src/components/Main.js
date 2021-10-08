@@ -71,7 +71,7 @@ const Main = ({ title, sub, folder }) => {
   useEffect(() => {
     setTimeout(() => {
       setShowModal(true);
-    }, 4000);
+    }, 3000);
     return () => setShowModal(false);
   }, []);
   return (

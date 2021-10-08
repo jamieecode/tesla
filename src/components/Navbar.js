@@ -79,17 +79,11 @@ const Navbar = () => {
           <StyledLink to="/modely">Model Y</StyledLink>
         </li>
 
-        <li>
-          <StyledLink to="/solarroofs">Solar Roof</StyledLink>
-        </li>
-        <li>
-          <StyledLink to="/solarpanels">Solar Panels</StyledLink>
-        </li>
+        <li>Solar Roof</li>
+        <li>Solar Panels</li>
       </ul>
       <ul>
-        <li>
-          <StyledLink to="/shop">Shop</StyledLink>
-        </li>
+        <li>Shop</li>
         <li>
           <StyledLink to="/account">Account</StyledLink>
         </li>
