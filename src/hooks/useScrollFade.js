@@ -1,13 +1,17 @@
 import { useRef, useCallback, useEffect } from "react";
 
-export const useScrollFade = (direction = "down", duration = 1, delay = 0) => {
+export const useScrollFade = (
+  direction = "down",
+  duration = 1.4,
+  delay = 0.8
+) => {
   const dom = useRef();
   const handleDirection = (direction) => {
     switch (direction) {
       case "up":
         return "0";
       case "down":
-        return "0.5";
+        return "0";
       default:
         break;
     }
@@ -17,7 +21,11 @@ export const useScrollFade = (direction = "down", duration = 1, delay = 0) => {
     ([entry]) => {
       const { current } = dom;
       if (entry.isIntersecting) {
+        current.style.transitionProperty = "all";
+        current.style.transitionDuration = `${duration}s`;
+        current.style.transitionTimingFunction = "cubic-bezier(0, 0, 0.2, 1)";
         current.style.opacity = 0.8;
+        current.style.transitionDelay = `${delay}`;
       }
     },
     [delay, duration]
